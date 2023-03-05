@@ -23,11 +23,7 @@ function App() {
 
       try {
         const generatedImageUrl = await generateImage(prompt);
-        const createObj = {
-          url: generatedImageUrl,
-          text: prompt,
-        };
-        setGeneratedImages([createObj, ...generatedImages]);
+        setGeneratedImages([generatedImageUrl, ...generatedImages]);
         setPrompt('');
       } catch (error) {
         console.error(error);
@@ -62,7 +58,7 @@ function App() {
           <div className='image-grid'>
             {generatedImages.map((image, index) => (
               <div key={index} className='grid-item'>
-                <img src={image.url} alt='Generated' className='grid-image' />
+                <img src={image} alt='Generated' className='grid-image' />
               </div>
             ))}
           </div>

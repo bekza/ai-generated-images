@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function generateImage(prompt) {
-  const API_KEY = 'your api key here';
+  const API_KEY = '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';
   const API_URL = 'https://api.openai.com/v1/images/generations';
 
   try {
