@@ -1,53 +1,17 @@
 * {
-  font-family: monospace;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 a {
   font-family: monospace;
   color: inherit;
   text-decoration: none;
 }
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 /* CSS */
 .app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   max-width: 1080px;
   margin: 0 auto;
   padding: 20px;
@@ -82,7 +46,7 @@ input[type="text"] {
 }
 input:focus{
   outline: none;
-  border:1px solid rgb(122, 122, 122);
+  border: 2px solid rgb(2 104 217 / 80%);
 }
 
 button {
@@ -102,33 +66,24 @@ button:hover {
   background-color: #0069d9;
 }
 
-.image-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .grid-item {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 100%;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  flex: 0 0 200px;
+  margin: 10px;
 }
-
-.grid-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
+.img-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .sub-title {
   font-size: 14px;
   color: #202124;
@@ -171,4 +126,14 @@ button:hover {
 
 .flashing-dot {
   animation: dot-flashing 1s infinite;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.icon-actions {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
 }

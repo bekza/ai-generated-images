@@ -1,9 +1,8 @@
 import axios from 'axios';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export async function generateImage(prompt) {
-  const API_KEY = 'your api key';
   const API_URL = 'https://api.openai.com/v1/images/generations';
-
   try {
     const response = await axios.post(
       API_URL,
@@ -12,11 +11,12 @@ export async function generateImage(prompt) {
         prompt: prompt,
         size: '512x512',
         response_format: 'url',
+        n: 1,
       },
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
         },
       }
     );
