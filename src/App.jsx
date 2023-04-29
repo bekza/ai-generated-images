@@ -4,11 +4,29 @@ import { generateImage } from './utils/helper';
 import { RiDeleteBin2Fill, RiFileCopy2Line } from 'react-icons/ri';
 import { Modal, Button } from 'antd';
 
-const initialState = [];
+const initialState = [
+  {
+    id: 'default-1',
+    url: 'https://img.freepik.com/free-vector/landscape-sketch-mountains-pines_23-2147606023.jpg?w=2000',
+    prompt: 'nature sketch images',
+  },
+  {
+    id: 'default-2',
+    url: 'https://images.nightcafe.studio/jobs/dOmBUOJnc3ZELp0nzZiv/dOmBUOJnc3ZELp0nzZiv--1--4i839.jpg?tr=w-1600,c-at_max',
+    prompt: 'squirrel artwork',
+  },
+];
 const clearLocalStorage = () => {
   setTimeout(() => {
     localStorage.removeItem('generatedImages');
   }, 60 * 60 * 1000); // 1 hour in milliseconds
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 };
 
 function App() {
@@ -23,6 +41,7 @@ function App() {
 
   const handlePromptClick = (prompt) => {
     setPrompt(prompt);
+    scrollToTop();
     inputRef.current.focus();
   };
 
@@ -90,7 +109,11 @@ function App() {
             <div className='grid-container'>
               {generatedImages.map((image) => (
                 <div key={image.id} className='grid-item'>
-                  <img src={image.url} alt='Image expired' />
+                  <img
+                    src={image.url}
+                    alt='Image expired'
+                    style={{ height: '512px' }}
+                  />
                   <div className='img-description'>
                     <p>{image.prompt}</p>
                     <p className='icon-actions'>
