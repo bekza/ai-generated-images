@@ -45,6 +45,10 @@ function App() {
     inputRef.current.focus();
   };
 
+  const resetFocus = () => {
+    inputRef.current.blur();
+  };
+
   useEffect(() => {
     localStorage.setItem('generatedImages', JSON.stringify(generatedImages));
     clearLocalStorage();
@@ -70,6 +74,7 @@ function App() {
         console.error(error);
       } finally {
         setIsLoading(false);
+        resetFocus();
       }
     }
   }
