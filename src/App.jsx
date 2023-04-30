@@ -100,7 +100,7 @@ function App() {
               placeholder='Visualize an extraordinary scene...'
             />
           </div>
-          <Button type='primary'>
+          <Button type='primary' onClick={handleSubmit}>
             {isLoading ? (
               <span className='flashing-text'>Creating visual art...</span>
             ) : (
